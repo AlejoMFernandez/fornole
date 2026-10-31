@@ -1,0 +1,1513 @@
+{
+ "$schema": "https://raw.githubusercontent.com/AlejoMFernandez/kit-demos/main/docs/cliente.schema.json",
+ "id": "fornole",
+ "nombre": "Fornole",
+ "instagram": "fornole",
+ "pais": "AR",
+ "idioma": "es",
+ "modo": "demo",
+ "whatsapp": "5491132143632",
+ "prefijoPedido": "FO",
+ "supabase": {
+  "url": "",
+  "anonKey": ""
+ },
+ "marca": {
+  "logo": "img/logo.svg",
+  "logoPanel": "img/logo-crema.svg",
+  "logoClaro": "img/logo-crema.svg",
+  "favicon": "img/favicon.png",
+  "colores": {
+   "fondo": "#FAF7EE",
+   "superficie": "#FFFFFF",
+   "texto": "#5E0A0A",
+   "primario": "#C8141C",
+   "sobrePrimario": "#FFFFFF",
+   "acento": "#A5C2BC",
+   "sobreAcento": "#3A0505",
+   "borde": "#E6CFC9",
+   "suave": "#7A4A44",
+   "ok": "#2F7356"
+  },
+  "fuentes": {
+   "titulos": "'Instrument Serif', Georgia, serif",
+   "texto": "'Instrument Sans', system-ui, sans-serif",
+   "googleFonts": ""
+  },
+  "estilo": {
+   "forma": "pildora",
+   "sombra": "suave",
+   "borde": "1.5px",
+   "mayusculas": false
+  }
+ },
+ "modulos": {
+  "carta": true,
+  "carrito": true,
+  "reservas": true,
+  "admin": true,
+  "cartaQR": true
+ },
+ "horarios": {
+  "lun": [
+   [
+    "09:00",
+    "16:00"
+   ]
+  ],
+  "mar": [
+   [
+    "09:00",
+    "16:00"
+   ]
+  ],
+  "mie": [
+   [
+    "09:00",
+    "23:30"
+   ]
+  ],
+  "jue": [
+   [
+    "09:00",
+    "23:30"
+   ]
+  ],
+  "vie": [
+   [
+    "09:00",
+    "00:00"
+   ]
+  ],
+  "sab": [
+   [
+    "09:00",
+    "00:00"
+   ]
+  ],
+  "dom": [
+   [
+    "09:00",
+    "23:00"
+   ]
+  ]
+ },
+ "reservas": {
+  "capacidad": 40,
+  "maxPersonas": 10,
+  "anticipacionMin": 60,
+  "diasAdelante": 30,
+  "duracionMin": 105,
+  "cerrados": [],
+  "servicios": [
+   {
+    "id": "cena",
+    "nombre": "Noche",
+    "dias": [
+     "mie",
+     "jue",
+     "vie",
+     "sab",
+     "dom"
+    ],
+    "tandas": [
+     {
+      "nombre": "Noche",
+      "turnos": [
+       "19:30",
+       "20:00",
+       "20:30",
+       "21:00",
+       "21:30",
+       "22:00"
+      ]
+     }
+    ]
+   }
+  ],
+  "extras": [
+   {
+    "id": "cumple",
+    "label": "Venimos a festejar un cumple"
+   },
+   {
+    "id": "vereda",
+    "label": "Si se puede, en la vereda"
+   }
+  ]
+ },
+ "pedidos": {
+  "salidas": [
+   "mercadopago",
+   "whatsapp"
+  ],
+  "tipos": [
+   "retiro"
+  ],
+  "envio": 0,
+  "minimo": 0,
+  "sinPrecio": "a_confirmar",
+  "retiroHoy": {
+   "cadaMin": 15,
+   "prepMin": 20,
+   "asap": true
+  },
+  "encargo": {
+   "anticipacionHoras": 12,
+   "diasAdelante": 14,
+   "franjas": [
+    {
+     "id": "manana",
+     "nombre": "Mañana",
+     "desde": "09:00",
+     "hasta": "12:00"
+    },
+    {
+     "id": "mediodia",
+     "nombre": "Mediodía",
+     "desde": "12:00",
+     "hasta": "16:00"
+    }
+   ]
+  }
+ },
+ "pagos": {
+  "mercadopago": {
+   "endpoint": "https://kit-demos-amf.vercel.app/api/mp-preference",
+   "modo": "sandbox"
+  }
+ },
+ "textos": {
+  "tuPedido": "Tu caja",
+  "verPedido": "Tu caja",
+  "agregar": "A la caja",
+  "carritoVacio": "La caja está vacía.",
+  "carritoVacioSub": "Elegí una pizza, algo de la panadería o encargá tu pan y aparece acá.",
+  "enviarPedido": "Mandar por WhatsApp",
+  "pagar": "Cerrar la caja · Mercado Pago",
+  "pedidoPagado": "¡Va al horno!",
+  "pedidoPagadoSub": "Tu código es {codigo}. Te esperamos en Holmberg 2323.",
+  "pedidoListo": "¡Listo, ya nos llegó!",
+  "notaPedido": "Aclaraciones (sin cebolla, cortada en 8…)",
+  "noDisponible": "Hoy no hay",
+  "retiro": "Retiro en Holmberg 2323",
+  "diaRetiro": "Día de retiro",
+  "franja": "Horario",
+  "panel": "Panel de Fornole",
+  "waPedido": "¡Hola Fornole! Armé esta caja:"
+ },
+ "cartaQR": {
+  "pedir": false,
+  "estilo": "marca",
+  "textos": {
+   "titulo": "Nuestra carta"
+  }
+ },
+ "carta": {
+  "categorias": [
+   {
+    "id": "cafes",
+    "nombre": "Cafés"
+   },
+   {
+    "id": "almuerzo",
+    "nombre": "Almuerzo"
+   },
+   {
+    "id": "pizzas-dia",
+    "nombre": "Pizzas de día"
+   },
+   {
+    "id": "pasteleria",
+    "nombre": "Pastelería"
+   },
+   {
+    "id": "bebidas-dia",
+    "nombre": "Bebidas"
+   },
+   {
+    "id": "entradas",
+    "nombre": "Entradas"
+   },
+   {
+    "id": "pizzas",
+    "nombre": "Pizzas napolitanas"
+   },
+   {
+    "id": "postres",
+    "nombre": "Postres"
+   },
+   {
+    "id": "aperitivos",
+    "nombre": "Aperitivos y whiskies"
+   },
+   {
+    "id": "cocteleria",
+    "nombre": "Coctelería y sugeridos"
+   },
+   {
+    "id": "cervezas",
+    "nombre": "Cervezas"
+   },
+   {
+    "id": "sin-alcohol",
+    "nombre": "Sin alcohol"
+   },
+   {
+    "id": "espumantes",
+    "nombre": "Espumantes"
+   },
+   {
+    "id": "por-copa",
+    "nombre": "Por copa"
+   },
+   {
+    "id": "blancos",
+    "nombre": "Blancos"
+   },
+   {
+    "id": "naranjos",
+    "nombre": "Naranjos"
+   },
+   {
+    "id": "rosados",
+    "nombre": "Rosados"
+   },
+   {
+    "id": "tintos-ligeros",
+    "nombre": "Tintos ligeros"
+   },
+   {
+    "id": "tintos",
+    "nombre": "Tintos"
+   },
+   {
+    "id": "panes",
+    "nombre": "Panes de masa madre",
+    "anticipacionHoras": 12
+   },
+   {
+    "id": "fornottones",
+    "nombre": "Fornottones",
+    "especial": true,
+    "desde": "2026-11-20",
+    "hasta": "2026-12-24",
+    "avisoDias": 40,
+    "anticipacionHoras": 24,
+    "bajada": "Nuestro pan dulce de masa madre. Se reserva y se retira del 20/11 al 24/12."
+   }
+  ],
+  "productos": [
+   {
+    "id": "espresso",
+    "categoria": "cafes",
+    "nombre": "Espresso",
+    "descripcion": "Un shot de espresso",
+    "precio": 4500,
+    "foto": "img/f/espresso.webp",
+    "etiquetas": []
+   },
+   {
+    "id": "espresso-doble",
+    "categoria": "cafes",
+    "nombre": "Espresso doble",
+    "descripcion": "Dos shots de espresso",
+    "precio": 5000,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "lungo",
+    "categoria": "cafes",
+    "nombre": "Lungo",
+    "descripcion": "Un shot de espresso más agua",
+    "precio": 4500,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "macchiato",
+    "categoria": "cafes",
+    "nombre": "Macchiato",
+    "descripcion": "Dos shots de espresso más espuma de leche. Taza chica.",
+    "precio": 5500,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "cortado",
+    "categoria": "cafes",
+    "nombre": "Cortado",
+    "descripcion": "Un shot de espresso más leche. Taza chica.",
+    "precio": 5500,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "americano",
+    "categoria": "cafes",
+    "nombre": "Americano",
+    "descripcion": "Dos shots de espresso más agua",
+    "precio": 5000,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "flat-white",
+    "categoria": "cafes",
+    "nombre": "Flat white",
+    "descripcion": "Dos shots de espresso más leche. Taza mediana.",
+    "precio": 6000,
+    "foto": "img/f/flatwhite.webp",
+    "etiquetas": []
+   },
+   {
+    "id": "latte",
+    "categoria": "cafes",
+    "nombre": "Latte",
+    "descripcion": "Un shot de espresso más leche",
+    "precio": 6200,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "capuccino",
+    "categoria": "cafes",
+    "nombre": "Capuccino",
+    "descripcion": "Un shot de espresso más leche emulsionada",
+    "precio": 6200,
+    "foto": "img/f/capuccino.webp",
+    "etiquetas": []
+   },
+   {
+    "id": "lagrima",
+    "categoria": "cafes",
+    "nombre": "Lágrima",
+    "descripcion": "Leche más medio shot de espresso. Taza grande.",
+    "precio": 6000,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "medialuna-jq",
+    "categoria": "almuerzo",
+    "nombre": "Medialuna J&Q",
+    "descripcion": "",
+    "precio": 7500,
+    "foto": "img/f/medialunajq.webp",
+    "etiquetas": []
+   },
+   {
+    "id": "fosforito-relleno",
+    "categoria": "almuerzo",
+    "nombre": "Fosforito relleno",
+    "descripcion": "Relleno con jamón crudo, albahaca y queso sardo",
+    "precio": 9500,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "tostado-jq",
+    "categoria": "almuerzo",
+    "nombre": "Tostado J&Q",
+    "descripcion": "Jamón natural Las Dinas, queso sardo y mozzarella fiordilatte, manteca. Prensado en pan de boniato",
+    "precio": 10000,
+    "foto": "img/f/tostado.webp",
+    "etiquetas": []
+   },
+   {
+    "id": "tostado-capresse",
+    "categoria": "almuerzo",
+    "nombre": "Tostado Capresse",
+    "descripcion": "Mozzarella fiordilatte, salsa de tomate, albahaca, prensado en pan de boniato",
+    "precio": 10000,
+    "foto": "",
+    "etiquetas": [
+     "veggie"
+    ]
+   },
+   {
+    "id": "porcion-donatella",
+    "categoria": "almuerzo",
+    "nombre": "Porción Donatella",
+    "descripcion": "Fugazzeta rellena: mozzarella fiordilatte, parmesano, cebolla asada, jamón cocido, oliva",
+    "precio": 15000,
+    "foto": "img/f/donatella.webp",
+    "etiquetas": []
+   },
+   {
+    "id": "porcion-donatella-veggie",
+    "categoria": "almuerzo",
+    "nombre": "Porción Donatella vegetariana",
+    "descripcion": "Mozzarella fiordilatte, parmesano, cebolla asada, gírgolas, cebolla de verdeo, oliva",
+    "precio": 15000,
+    "foto": "",
+    "etiquetas": [
+     "veggie"
+    ]
+   },
+   {
+    "id": "faina-simple-dia",
+    "categoria": "almuerzo",
+    "nombre": "Fainá simple",
+    "descripcion": "Oliva, jugo de limón",
+    "precio": 11000,
+    "foto": "",
+    "etiquetas": [
+     "veggie"
+    ]
+   },
+   {
+    "id": "faina-queso-dia",
+    "categoria": "almuerzo",
+    "nombre": "Fainá con queso",
+    "descripcion": "Crema de cebolla, queso sardo, parmesano, ciboulette, ralladura de limón, oliva",
+    "precio": 12500,
+    "foto": "img/f/faina.webp",
+    "etiquetas": [
+     "veggie"
+    ]
+   },
+   {
+    "id": "margarita-dia",
+    "categoria": "pizzas-dia",
+    "nombre": "Margarita",
+    "descripcion": "Salsa de tomate italiano, mozzarella fior di latte, albahaca, parmesano, oliva",
+    "precio": 27000,
+    "foto": "img/f/pz-margarita.webp",
+    "etiquetas": [
+     "veggie"
+    ]
+   },
+   {
+    "id": "pepperoni-dia",
+    "categoria": "pizzas-dia",
+    "nombre": "Pepperoni",
+    "descripcion": "Mozzarella fior di latte, queso sardo, pepperoni, parmesano, orégano fresco, miel, ralladura de limón, oliva",
+    "precio": 27000,
+    "foto": "img/f/pz-pepperoni.webp",
+    "etiquetas": []
+   },
+   {
+    "id": "medialuna",
+    "categoria": "pasteleria",
+    "nombre": "Medialuna",
+    "descripcion": "",
+    "precio": 3500,
+    "foto": "img/f/medialuna.webp",
+    "etiquetas": []
+   },
+   {
+    "id": "fosforito",
+    "categoria": "pasteleria",
+    "nombre": "Fosforito",
+    "descripcion": "",
+    "precio": 3500,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "palmerita",
+    "categoria": "pasteleria",
+    "nombre": "Palmerita",
+    "descripcion": "",
+    "precio": 3600,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "chipa",
+    "categoria": "pasteleria",
+    "nombre": "Chipá",
+    "descripcion": "",
+    "precio": 4300,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "roll-canela",
+    "categoria": "pasteleria",
+    "nombre": "Roll de canela",
+    "descripcion": "",
+    "precio": 5000,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "sidra-dia",
+    "categoria": "bebidas-dia",
+    "nombre": "Sidra",
+    "descripcion": "",
+    "precio": 8000,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "agua-dia",
+    "categoria": "bebidas-dia",
+    "nombre": "Agua con o sin gas",
+    "descripcion": "",
+    "precio": 4000,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "te-hibiscus-dia",
+    "categoria": "bebidas-dia",
+    "nombre": "Té frío de hibiscus",
+    "descripcion": "Infusión de hibiscus, almíbar, jugo de limón, soda",
+    "precio": 7500,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "pomelada-dia",
+    "categoria": "bebidas-dia",
+    "nombre": "Pomelada",
+    "descripcion": "Jugo de pomelo, infusión de hibiscus, almíbar, agua",
+    "precio": 7000,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "limonada-dia",
+    "categoria": "bebidas-dia",
+    "nombre": "Limonada",
+    "descripcion": "Jugo de limón, cordial de menta, jengibre, agua",
+    "precio": 7000,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "coca-sprite-dia",
+    "categoria": "bebidas-dia",
+    "nombre": "Coca / Sprite",
+    "descripcion": "",
+    "precio": 5900,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "coloreada-dia",
+    "categoria": "bebidas-dia",
+    "nombre": "Coloreada Ginger Ale",
+    "descripcion": "Limón y menta / Hibiscus",
+    "precio": 9000,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "kombucha-dia",
+    "categoria": "bebidas-dia",
+    "nombre": "Kombucha Bunji",
+    "descripcion": "Arándanos y lima / Manzana y menta",
+    "precio": 9000,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "tirada-dia",
+    "categoria": "bebidas-dia",
+    "nombre": "Tirada · doble caña 360 ml",
+    "descripcion": "MUR o Strange",
+    "precio": null,
+    "foto": "img/f/tirada.webp",
+    "etiquetas": [],
+    "variantes": [
+     {
+      "id": "mur",
+      "nombre": "MUR",
+      "precio": 8500
+     },
+     {
+      "id": "strange",
+      "nombre": "Strange",
+      "precio": 9000
+     }
+    ]
+   },
+   {
+    "id": "peroni-dia",
+    "categoria": "bebidas-dia",
+    "nombre": "Peroni 330 ml",
+    "descripcion": "",
+    "precio": 9000,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "corona-sa-dia",
+    "categoria": "bebidas-dia",
+    "nombre": "Corona sin alcohol",
+    "descripcion": "",
+    "precio": 9000,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "faina-simple",
+    "categoria": "entradas",
+    "nombre": "Fainá simple",
+    "descripcion": "Oliva, jugo de limón",
+    "precio": 11000,
+    "foto": "",
+    "etiquetas": [
+     "veggie"
+    ]
+   },
+   {
+    "id": "faina-queso",
+    "categoria": "entradas",
+    "nombre": "Fainá con queso",
+    "descripcion": "Crema de cebolla, Gouda de Naturaleza Viva, parmesano, ciboulette, ralladura de limón, oliva",
+    "precio": 12500,
+    "foto": "img/f/faina.webp",
+    "etiquetas": [
+     "veggie"
+    ]
+   },
+   {
+    "id": "faina-chucrut",
+    "categoria": "entradas",
+    "nombre": "Fainá chucrut",
+    "descripcion": "Crema de cebolla, pasta de maní, chucrut, orégano fresco",
+    "precio": 12500,
+    "foto": "",
+    "etiquetas": [
+     "veggie"
+    ]
+   },
+   {
+    "id": "faina-quinotos",
+    "categoria": "entradas",
+    "nombre": "Fainá quinotos",
+    "descripcion": "Crema de berenjenas, pasta de maní, chucrut, cilantro, quinotos",
+    "precio": 12500,
+    "foto": "",
+    "etiquetas": [
+     "veggie"
+    ]
+   },
+   {
+    "id": "provoleta",
+    "categoria": "entradas",
+    "nombre": "Provoleta",
+    "descripcion": "Sale con ensaladita y chutney de peras",
+    "precio": 19500,
+    "foto": "",
+    "etiquetas": [
+     "veggie"
+    ]
+   },
+   {
+    "id": "pizza-frita",
+    "categoria": "entradas",
+    "nombre": "Pizza frita",
+    "descripcion": "Salsa de tomate italiano, stracciatella, albahaca, parmesano, oliva. Opción vegana: salsa de tomate, hongos asados, queso de cajú, albahaca.",
+    "precio": null,
+    "foto": "img/f/pizzafrita.webp",
+    "etiquetas": [],
+    "variantes": [
+     {
+      "id": "x2",
+      "nombre": "Media porción x2",
+      "precio": 18000
+     },
+     {
+      "id": "x4",
+      "nombre": "Porción x4",
+      "precio": 22000
+     }
+    ]
+   },
+   {
+    "id": "donatella",
+    "categoria": "entradas",
+    "nombre": "Donatella",
+    "descripcion": "Fugazzeta rellena: mozzarella, Gouda de Naturaleza Viva, parmesano, cebolla asada, jamón natural Las Dinas, oliva. También vegetariana, con gírgolas y cebolla de verdeo.",
+    "precio": null,
+    "foto": "img/f/donatella.webp",
+    "etiquetas": [],
+    "variantes": [
+     {
+      "id": "entera",
+      "nombre": "Entera",
+      "precio": 50000
+     },
+     {
+      "id": "porcion",
+      "nombre": "Porción",
+      "precio": 15000
+     }
+    ]
+   },
+   {
+    "id": "fugaza-fornole",
+    "categoria": "pizzas",
+    "nombre": "Fugaza Fornole",
+    "descripcion": "Crema de berenjenas ahumadas, mix de cebolla asada, aceitunas negras, orégano, garrapiñada de girasol, oliva",
+    "precio": 26000,
+    "foto": "img/f/pz-fugaza.webp",
+    "etiquetas": [
+     "casa",
+     "veggie"
+    ]
+   },
+   {
+    "id": "margarita",
+    "categoria": "pizzas",
+    "nombre": "Margarita",
+    "descripcion": "Pomodoro italiano, fior di latte, albahaca, parmesano, oliva",
+    "precio": 27000,
+    "foto": "img/f/pz-margarita.webp",
+    "etiquetas": [
+     "veggie"
+    ]
+   },
+   {
+    "id": "charly-garcia",
+    "categoria": "pizzas",
+    "nombre": "Charly García",
+    "descripcion": "Fior di latte, Gouda de Naturaleza Viva, jamón natural de Las Dinas, morrones ahumados, tapenade, parmesano, jalea, oliva",
+    "precio": 27000,
+    "foto": "img/f/pz-charly.webp",
+    "etiquetas": []
+   },
+   {
+    "id": "luis-alberto-spinetta",
+    "categoria": "pizzas",
+    "nombre": "Luis Alberto Spinetta",
+    "descripcion": "Fior di latte, Gouda de Naturaleza Viva, mortadela, pepinos encurtidos, mostaza con miel, pesto, parmesano, oliva",
+    "precio": 27000,
+    "foto": "img/f/pz-spinetta.webp",
+    "etiquetas": []
+   },
+   {
+    "id": "quiero-vale-4",
+    "categoria": "pizzas",
+    "nombre": "Quiero vale 4",
+    "descripcion": "Fior di latte, Gouda de Naturaleza Viva, queso azul, parmesano, gírgolas, ralladura de limón, orégano fresco, oliva",
+    "precio": 27000,
+    "foto": "img/f/pz-vale4.webp",
+    "etiquetas": [
+     "veggie"
+    ]
+   },
+   {
+    "id": "pepperoni",
+    "categoria": "pizzas",
+    "nombre": "Pepperoni",
+    "descripcion": "Pomodoro italiano, fior di latte, Gouda de Naturaleza Viva, pepperoni, parmesano, orégano fresco, miel, ralladura de limón, oliva",
+    "precio": 27000,
+    "foto": "img/f/pz-pepperoni.webp",
+    "etiquetas": []
+   },
+   {
+    "id": "provolone",
+    "categoria": "pizzas",
+    "nombre": "Provolone",
+    "descripcion": "Pomodoro italiano, fior di latte, provolone, miel, orégano, aceitunas verdes, parmesano, oliva",
+    "precio": 27000,
+    "foto": "img/f/pz-provolone.webp",
+    "etiquetas": [
+     "nuevo",
+     "veggie"
+    ]
+   },
+   {
+    "id": "mar-del-plata",
+    "categoria": "pizzas",
+    "nombre": "Mar del Plata",
+    "descripcion": "Pomodoro italiano, stracciatella, anchoas, ciboulette, parmesano, ralladura de limón, oliva",
+    "precio": 28000,
+    "foto": "img/f/pz-mardelplata.webp",
+    "etiquetas": []
+   },
+   {
+    "id": "diego-armando-maradona",
+    "categoria": "pizzas",
+    "nombre": "Diego Armando Maradona",
+    "descripcion": "Fior di latte, Gouda de Naturaleza Viva, rúcula, jamón crudo, garrapiñada de girasol, parmesano, oliva",
+    "precio": 29000,
+    "foto": "img/f/pz-maradona.webp",
+    "etiquetas": []
+   },
+   {
+    "id": "tony-mi-viejo",
+    "categoria": "postres",
+    "nombre": "Tony, mi viejo",
+    "descripcion": "Flan de dulce de leche con crema",
+    "precio": 14000,
+    "foto": "img/f/tony.webp",
+    "etiquetas": []
+   },
+   {
+    "id": "copa-fornole",
+    "categoria": "postres",
+    "nombre": "Copa Fornole",
+    "descripcion": "Helado de crema, fruta de estación y whisky Chivas Regal 12 años",
+    "precio": 14000,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "tiramisu",
+    "categoria": "postres",
+    "nombre": "Tiramisú",
+    "descripcion": "Vainillas caseras, sambayón, mascarpone, crema y un toque de café",
+    "precio": 14000,
+    "foto": "img/f/tiramisu.webp",
+    "etiquetas": []
+   },
+   {
+    "id": "mousse-jony",
+    "categoria": "postres",
+    "nombre": "La mousse de Jony",
+    "descripcion": "Mousse vegana a base de chocolate Fénix",
+    "precio": 14000,
+    "foto": "",
+    "etiquetas": [
+     "vegano"
+    ]
+   },
+   {
+    "id": "cafe-noche",
+    "categoria": "postres",
+    "nombre": "Café",
+    "descripcion": "",
+    "precio": 5000,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "vermut",
+    "categoria": "aperitivos",
+    "nombre": "Vermut",
+    "descripcion": "Vesta (rosso), Alfonsina (blanco) o La Fuerza (rojo / blanco / primavera)",
+    "precio": 9000,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "cynar-julep",
+    "categoria": "aperitivos",
+    "nombre": "Cynar julep",
+    "descripcion": "Cynar, menta fresca, almíbar, jugo de pomelo",
+    "precio": 9000,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "fernet",
+    "categoria": "aperitivos",
+    "nombre": "Fernet",
+    "descripcion": "Fernet Branca, coca cola",
+    "precio": 9500,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "campari",
+    "categoria": "aperitivos",
+    "nombre": "Campari",
+    "descripcion": "Campari, jugo de naranja",
+    "precio": 9500,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "sidra",
+    "categoria": "aperitivos",
+    "nombre": "Sidra",
+    "descripcion": "",
+    "precio": 8500,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "jameson",
+    "categoria": "aperitivos",
+    "nombre": "Whisky Jameson",
+    "descripcion": "",
+    "precio": 12000,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "chivas",
+    "categoria": "aperitivos",
+    "nombre": "Whisky Chivas Regal 12 años",
+    "descripcion": "",
+    "precio": 14000,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "mojito",
+    "categoria": "cocteleria",
+    "nombre": "Mojito",
+    "descripcion": "Ron, lima, simple, soda, menta",
+    "precio": 9000,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "ferroviario",
+    "categoria": "cocteleria",
+    "nombre": "Ferroviario",
+    "descripcion": "Fernet, vermut rosso, pomelo, soda",
+    "precio": 9500,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "negroni",
+    "categoria": "cocteleria",
+    "nombre": "Negroni",
+    "descripcion": "Gin, vermut rosso y Campari",
+    "precio": 12000,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "gimlet",
+    "categoria": "cocteleria",
+    "nombre": "Gimlet",
+    "descripcion": "Gin, jugo de limón, almíbar",
+    "precio": 10500,
+    "foto": "img/f/gimlet.webp",
+    "etiquetas": []
+   },
+   {
+    "id": "penicillin",
+    "categoria": "cocteleria",
+    "nombre": "Penicillin",
+    "descripcion": "Bourbon, jugo de limón, jengibre, miel orgánica, ahumado con corteza de manzano",
+    "precio": 13000,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "gin-tonic-casa",
+    "categoria": "cocteleria",
+    "nombre": "Gin tonic de la casa",
+    "descripcion": "Gin, jugo de limón, jugo de pomelo, almíbar, agua tónica",
+    "precio": 9000,
+    "foto": "",
+    "etiquetas": [
+     "casa"
+    ]
+   },
+   {
+    "id": "el-que-no-iba-a-salir",
+    "categoria": "cocteleria",
+    "nombre": "El que no iba a salir",
+    "descripcion": "Aperol, vermut blanco, jugo de pomelo y limón, syrup, romero",
+    "precio": 9000,
+    "foto": "img/f/spritz.webp",
+    "etiquetas": [
+     "casa"
+    ]
+   },
+   {
+    "id": "tirada",
+    "categoria": "cervezas",
+    "nombre": "Tirada · doble caña 360 ml",
+    "descripcion": "MUR o Strange",
+    "precio": null,
+    "foto": "img/f/tirada.webp",
+    "etiquetas": [],
+    "variantes": [
+     {
+      "id": "mur",
+      "nombre": "MUR",
+      "precio": 8500
+     },
+     {
+      "id": "strange",
+      "nombre": "Strange",
+      "precio": 9000
+     }
+    ]
+   },
+   {
+    "id": "mur-latas",
+    "categoria": "cervezas",
+    "nombre": "MUR en lata",
+    "descripcion": "",
+    "precio": null,
+    "foto": "",
+    "etiquetas": [],
+    "variantes": [
+     {
+      "id": "pilsen",
+      "nombre": "Pilsen / Amber Lager / Dark Lager",
+      "precio": 8500
+     },
+     {
+      "id": "ipa",
+      "nombre": "Session IPA / Mini Neipa",
+      "precio": 9000
+     }
+    ]
+   },
+   {
+    "id": "strange-latas",
+    "categoria": "cervezas",
+    "nombre": "Strange en lata",
+    "descripcion": "",
+    "precio": null,
+    "foto": "",
+    "etiquetas": [],
+    "variantes": [
+     {
+      "id": "lager",
+      "nombre": "Lager / Stout",
+      "precio": 10000
+     },
+     {
+      "id": "ipa",
+      "nombre": "IPA / Neipa",
+      "precio": 12000
+     }
+    ]
+   },
+   {
+    "id": "peroni",
+    "categoria": "cervezas",
+    "nombre": "Peroni 330 ml",
+    "descripcion": "",
+    "precio": 9000,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "agua",
+    "categoria": "sin-alcohol",
+    "nombre": "Agua con o sin gas",
+    "descripcion": "Servicio libre por persona",
+    "precio": 4000,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "coca-sprite",
+    "categoria": "sin-alcohol",
+    "nombre": "Coca / Sprite",
+    "descripcion": "",
+    "precio": 5900,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "te-hibiscus",
+    "categoria": "sin-alcohol",
+    "nombre": "Té frío de hibiscus",
+    "descripcion": "Infusión de hibiscus, almíbar, jugo de limón, soda",
+    "precio": 7500,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "pomelada",
+    "categoria": "sin-alcohol",
+    "nombre": "Pomelada",
+    "descripcion": "Jugo de pomelo, infusión de hibiscus, almíbar, agua",
+    "precio": 7000,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "limonada",
+    "categoria": "sin-alcohol",
+    "nombre": "Limonada",
+    "descripcion": "Jugo de limón, cordial de menta, jengibre, agua",
+    "precio": 7000,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "coloreada",
+    "categoria": "sin-alcohol",
+    "nombre": "Coloreada Ginger Ale",
+    "descripcion": "Limón y menta",
+    "precio": 9000,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "kombucha",
+    "categoria": "sin-alcohol",
+    "nombre": "Kombucha Bunji",
+    "descripcion": "Arándanos y lima / Manzana y menta",
+    "precio": 9000,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "corona-sa",
+    "categoria": "sin-alcohol",
+    "nombre": "Corona sin alcohol",
+    "descripcion": "",
+    "precio": 9000,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "animal-chardonnay",
+    "categoria": "espumantes",
+    "nombre": "Animal · Chardonnay",
+    "descripcion": "Catena Wines · Cordón del Plata, Luján de Cuyo, Mendoza",
+    "precio": 28000,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "omaggio-viognier",
+    "categoria": "espumantes",
+    "nombre": "Omaggio · Viognier",
+    "descripcion": "Joanna Foster y Ernesto Catena · Vista Flores, Mendoza",
+    "precio": 30000,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "jardin-enchante-rosado",
+    "categoria": "espumantes",
+    "nombre": "Jardin Enchanté · Rosado extra brut",
+    "descripcion": "Jardin Enchanté · Vista Flores, Valle de Uco, Mendoza",
+    "precio": 30000,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "copa-hippie-blancas",
+    "categoria": "por-copa",
+    "nombre": "Be My Hippie Love · Criollas blancas",
+    "descripcion": "Che Vins · La Consulta, Valle de Uco, Mendoza",
+    "precio": 9000,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "copa-hippie-tinta",
+    "categoria": "por-copa",
+    "nombre": "Be My Hippie Love · Criolla tinta",
+    "descripcion": "Che Vins · La Consulta, Valle de Uco, Mendoza",
+    "precio": 9000,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "copa-mara-malbec",
+    "categoria": "por-copa",
+    "nombre": "Mara · Malbec",
+    "descripcion": "Mara · El Cepillo, Mendoza",
+    "precio": 9000,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "kamikaze-patricia",
+    "categoria": "blancos",
+    "nombre": "Kamikaze · Patricia",
+    "descripcion": "La Payas · San Rafael, Mendoza",
+    "precio": 23000,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "hippie-blancas",
+    "categoria": "blancos",
+    "nombre": "Be My Hippie Love · Criollas blancas",
+    "descripcion": "Che Vins · La Consulta, Valle de Uco, Mendoza",
+    "precio": 25000,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "tatu-chardonnay",
+    "categoria": "blancos",
+    "nombre": "Tatu · Chardonnay",
+    "descripcion": "Joanna Foster y Ernesto Catena · Tunuyán, Vista Flores, Mendoza",
+    "precio": 25000,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "campo-del-cielo",
+    "categoria": "blancos",
+    "nombre": "Campo del Cielo · Chardonnay / Viognier",
+    "descripcion": "Radical Imagination · Valle de Uco, Mendoza",
+    "precio": 30000,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "la-cayetana-pg",
+    "categoria": "blancos",
+    "nombre": "La Cayetana · Pedro Giménez",
+    "descripcion": "La Cayetana Wines · Valle de Uco, Mendoza",
+    "precio": 32000,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "la-mocha-naranjo",
+    "categoria": "naranjos",
+    "nombre": "La Mocha Naranjo · Pedro Giménez",
+    "descripcion": "Finca Cosmos · Lavalle, Mendoza",
+    "precio": 28000,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "solito-va",
+    "categoria": "naranjos",
+    "nombre": "Solito Va · Pedro Giménez",
+    "descripcion": "Solito Va · La Consulta, Mendoza",
+    "precio": 30000,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "batallero-naranjo",
+    "categoria": "naranjos",
+    "nombre": "Batallero Naranjo · Malvasía criolla y torrontés sanjuanino",
+    "descripcion": "Finca Muñoz · Valle de Calingasta, San Juan",
+    "precio": 30000,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "cosmovision",
+    "categoria": "naranjos",
+    "nombre": "Cosmovisión · Chardonnay",
+    "descripcion": "Radical Imagination · Valle de Uco, Mendoza",
+    "precio": 31000,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "naranjo-mecanico",
+    "categoria": "naranjos",
+    "nombre": "Naranjo Mecánico · Blend de uvas blancas",
+    "descripcion": "La Imaginación al Poder · Luján de Cuyo, Mendoza",
+    "precio": 34000,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "lio-de-lias",
+    "categoria": "naranjos",
+    "nombre": "Lío de Lías · Torrontés",
+    "descripcion": "Luciano Peirone y Sebastián Escalante · Quebrada de Humahuaca, Jujuy",
+    "precio": 39000,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "rosado-25",
+    "categoria": "rosados",
+    "nombre": "Rosado 25 · Pinot Noir",
+    "descripcion": "Rocamadre · Paraje Altamira, Mendoza",
+    "precio": 32000,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "jardin-enchante-malbec",
+    "categoria": "rosados",
+    "nombre": "Jardin Enchanté · Malbec",
+    "descripcion": "Jardin Enchanté · Vista Flores, Valle de Uco, Mendoza",
+    "precio": 32500,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "hippie-criolla",
+    "categoria": "tintos-ligeros",
+    "nombre": "Be My Hippie Love · Criolla",
+    "descripcion": "Che Vins · La Consulta, Valle de Uco, Mendoza",
+    "precio": 26000,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "tatu-criolla",
+    "categoria": "tintos-ligeros",
+    "nombre": "Tatu · Criolla",
+    "descripcion": "Joanna Foster y Ernesto Catena · Tunuyán, Vista Flores, Mendoza",
+    "precio": 26500,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "criolla-tinta-24",
+    "categoria": "tintos-ligeros",
+    "nombre": "Criolla Tinta 24 · Criolla",
+    "descripcion": "Rocamadre · Paraje Altamira, Mendoza",
+    "precio": 30000,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "kriptos-pinot",
+    "categoria": "tintos-ligeros",
+    "nombre": "Kriptos · Pinot Noir",
+    "descripcion": "Kriptos · San Patricio del Chañar, Neuquén",
+    "precio": 31500,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "on-the-road",
+    "categoria": "tintos-ligeros",
+    "nombre": "On the Road · Pinot Noir",
+    "descripcion": "Che Vins · Mendoza",
+    "precio": 32500,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "ver-sacrum-gsm",
+    "categoria": "tintos-ligeros",
+    "nombre": "Ver Sacrum · GSM",
+    "descripcion": "Ver Sacrum Wines · Valle de Uco, Mendoza",
+    "precio": 38000,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "kung-fu-criolla",
+    "categoria": "tintos-ligeros",
+    "nombre": "Kung Fu · Criolla",
+    "descripcion": "Ricitelli · Los Chacayes, Mendoza",
+    "precio": 40000,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "la-cayetana-pinot",
+    "categoria": "tintos-ligeros",
+    "nombre": "La Cayetana · Pinot Noir",
+    "descripcion": "La Cayetana Wines · Valle de Uco, Mendoza",
+    "precio": 42500,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "tatu-syrah",
+    "categoria": "tintos",
+    "nombre": "Tatu · Syrah",
+    "descripcion": "Catena Wines · Tunuyán, Vista Flores, Mendoza",
+    "precio": 25000,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "amici-miei",
+    "categoria": "tintos",
+    "nombre": "Amici Miei · Malbec",
+    "descripcion": "Stella Crinita · Vista Flores, Valle de Uco, Mendoza",
+    "precio": 26000,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "animal-malbec",
+    "categoria": "tintos",
+    "nombre": "Animal · Malbec",
+    "descripcion": "Catena Wines · Agrelo, Altamira, Tupungato, La Consulta, Mendoza",
+    "precio": 26000,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "stella-malbec",
+    "categoria": "tintos",
+    "nombre": "Stella Crinita · Malbec",
+    "descripcion": "Stella Crinita · Vista Flores, Valle de Uco, Mendoza",
+    "precio": 29000,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "la-cayetana-malbec",
+    "categoria": "tintos",
+    "nombre": "La Cayetana · Malbec",
+    "descripcion": "La Cayetana Wines · Valle de Uco, Mendoza",
+    "precio": 32000,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "luna-llena",
+    "categoria": "tintos",
+    "nombre": "Luna Llena · Malbec / Cabernet Sauvignon",
+    "descripcion": "Finca Ambrosía · Mendoza",
+    "precio": 34000,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "stella-cabfranc",
+    "categoria": "tintos",
+    "nombre": "Stella Crinita · Cabernet Franc",
+    "descripcion": "Stella Crinita · Vista Flores, Valle de Uco, Mendoza",
+    "precio": 36000,
+    "foto": "",
+    "etiquetas": []
+   },
+   {
+    "id": "pan-campo",
+    "categoria": "panes",
+    "nombre": "Pan de campo semi integral",
+    "descripcion": "Harina 000, integral de trigo orgánico, integral de centeno orgánico, masa madre, agua filtrada y sal.",
+    "precio": null,
+    "foto": "img/f/pancampo.webp",
+    "etiquetas": []
+   },
+   {
+    "id": "pan-boniato",
+    "categoria": "panes",
+    "nombre": "Pan de boniato",
+    "descripcion": "Tipo nube lactal pero planta base. El de nuestros tostados: para sanguchitos, tostadas o solo.",
+    "precio": null,
+    "foto": "img/f/panboniato.webp",
+    "etiquetas": [
+     "vegano"
+    ]
+   },
+   {
+    "id": "pan-papa",
+    "categoria": "panes",
+    "nombre": "Pan de papa",
+    "descripcion": "Basado en plantas. Una nube: el favorito de chicxs y grandes.",
+    "precio": null,
+    "foto": "img/f/panpapa.webp",
+    "etiquetas": [
+     "vegano"
+    ]
+   },
+   {
+    "id": "fornottone-classic",
+    "categoria": "fornottones",
+    "nombre": "Fornottone Classic",
+    "descripcion": "Nuestro pan dulce de masa madre: naranjas confitadas, chips de chocolate amargo y pasas maceradas en vino tinto.",
+    "precio": null,
+    "foto": "img/f/fornottone.webp",
+    "etiquetas": []
+   },
+   {
+    "id": "fornottone-choco",
+    "categoria": "fornottones",
+    "nombre": "Fornottone Chocolate",
+    "descripcion": "Masa de cacao, chips de chocolate amargo y con leche, cobertura de chocolate blanco.",
+    "precio": null,
+    "foto": "img/f/fornottone-choco.webp",
+    "etiquetas": []
+   }
+  ]
+ }
+}

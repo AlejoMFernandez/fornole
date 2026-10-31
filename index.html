@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fornole · Pizza y pan de masa madre en Villa Urquiza</title>
+<meta property="og:image" content="https://fornole.vercel.app/img/og.jpg?v=1">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Fornole · Pizza &amp; Pan · masa madre en Villa Urquiza">
+<meta property="og:title" content="Fornole · Pizza y pan de masa madre en Villa Urquiza">
+<meta property="og:description" content="Carta de día y de noche, pedidos para llevar, reservas y encargos de pan.">
+<meta property="og:url" content="https://fornole.vercel.app/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Fornole">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://fornole.vercel.app/img/og.jpg?v=1">
+<meta name="description" content="Fornole, Ristorante // Pizza &amp; Pan en Holmberg 2323, Villa Urquiza. Pizzas napolitanas de masa madre con nombre de ídolo, panadería, barra y vinos naturales. Pedí para llevar, reservá tu mesa y encargá tu pan.">
+<meta name="theme-color" content="#E01D25">
+<link rel="icon" href="img/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<script>
+  (function () {
+    var d = document.documentElement; d.classList.add('js');
+    // EL RELOJ: día (9:00 a 19:30 hs) o noche (19:30 hs al cierre), con la hora real de Buenos Aires. ?momento=dia|noche para mostrarla
+    var q = (location.search.match(/[?&]momento=(dia|noche)/) || [])[1], t = q;
+    if (!t) { try { var p = new Intl.DateTimeFormat('en-GB', { timeZone: 'America/Argentina/Buenos_Aires', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).format(new Date()).split(':'); var m = +p[0] * 60 + +p[1]; t = (m >= 1170 || m < 300) ? 'noche' : 'dia'; } catch (e) { t = 'dia'; } }
+    d.dataset.turno = t;
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches && !/[?&]sinintro/.test(location.search)) d.classList.add('con-intro');
+    setTimeout(function () { if (!window.__fornole) { d.classList.remove('con-intro'); d.classList.add('listo'); } }, 4500);
+  })();
+</script>
+<link rel="preload" href="fonts/instrument-serif.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/instrument-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/barlow-condensed-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="kit/kit.css?v=1">
+<link rel="stylesheet" href="css/fornole.css?v=1">
+</head>
+<body>
+
+<!-- ===== INTRO: la persiana del ex taller ===== -->
+<div class="intro" id="intro" aria-hidden="true">
+  <div class="intro__persiana">
+    <img class="intro__logo" src="img/logo-crema.svg" alt="" width="820" height="408">
+  </div>
+</div>
+
+<a class="saltar" href="#carta">Ir a la carta</a>
+
+<!-- ===== BARRA ===== -->
+<header class="barra" id="barra">
+  <a class="barra__logo" href="#inicio" aria-label="Fornole, inicio"><img src="img/logo-crema.svg" alt="Fornole" width="820" height="408"></a>
+  <nav class="barra__nav" aria-label="Secciones">
+    <a href="#idolos">Los ídolos</a>
+    <a href="#carta">Carta</a>
+    <a href="#panaderia">Panadería</a>
+    <a href="#cava">La cava</a>
+    <a href="#historia">Historia</a>
+    <a href="#visitanos">Visitanos</a>
+  </nav>
+  <div class="barra__acc">
+    <button type="button" class="barra__turno" data-turno-btn aria-label="Ver la web de noche"><span data-turno-ico aria-hidden="true">☾</span><span class="barra__turno-t" data-turno-txt>De noche</span></button>
+    <button type="button" class="barra__reservar" data-kit-open="reservas">Reservar</button>
+    <button type="button" class="barra__caja" data-kit-open="carrito" aria-label="Tu caja">Tu caja <span class="barra__n" data-caja-n>0</span></button>
+    <button type="button" class="barra__menu" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu" data-menu>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="menu" id="menu" hidden>
+  <nav class="menu__nav" aria-label="Menú">
+    <a href="#idolos" data-menu-link>Los ídolos</a>
+    <a href="#carta" data-menu-link>La carta</a>
+    <a href="#panaderia" data-menu-link>Encargá tu pan</a>
+    <a href="#cava" data-menu-link>La cava</a>
+    <a href="#reservas" data-menu-link>Reservá tu mesa</a>
+    <a href="#historia" data-menu-link>Historia</a>
+    <a href="#visitanos" data-menu-link>Visitanos</a>
+  </nav>
+  <button type="button" class="menu__turno" data-turno-btn2>Ver la web <span data-turno-txt2>de noche</span></button>
+  <a class="menu__panel" href="admin/" target="_blank" rel="noopener"><span class="punto-vivo"></span>¿Sos de Fornole? Probá tu panel →</a>
+</div>
+
+<main>
+<!-- ===== 1 · HERO (mesa celeste + persiana roja) ===== -->
+<section class="hero" id="inicio" aria-labelledby="hero-t">
+  <div class="hero__panel">
+    <div class="hero__txt">
+      <p class="hero__eyebrow"><span class="ren"><span>Holmberg 2323 · Villa Urquiza</span></span></p>
+      <h1 class="hero__t" id="hero-t"><span class="ren"><span>Pizza</span></span><span class="ren"><span>&amp; Pan</span></span></h1>
+      <p class="hero__p">
+        <span class="solo-dia">Pan de masa madre, café y medialunas recién salidas del horno. Desde las 19:30 hs se prenden los hornos de las pizzas.</span>
+        <span class="solo-noche">Pizzas napolitanas de masa madre y harinas agroecológicas, con nombre de ídolo. Barra, vermú y vinos naturales.</span>
+      </p>
+      <div class="hero__cta">
+        <a class="btn btn--crema solo-dia" href="#panaderia">Encargá tu pan</a>
+        <a class="btn btn--crema solo-noche" href="#carta" data-ir-pagina="noche">Pedir para llevar</a>
+        <button type="button" class="btn btn--linea" data-kit-open="reservas">Reservar mesa</button>
+      </div>
+    </div>
+  </div>
+  <div class="hero__foto">
+    <picture>
+      <source media="(max-width: 767px)" data-srcset-dia="img/f/hero-dia-cel.webp" data-srcset-noche="img/f/hero-noche-cel.webp">
+      <img data-hero-img data-src-dia="img/f/hero-dia-1440.webp" data-srcset-dia="img/f/hero-dia-900.webp 900w, img/f/hero-dia-1440.webp 1440w" data-src-noche="img/f/hero-noche-1440.webp" data-srcset-noche="img/f/hero-noche-900.webp 900w, img/f/hero-noche-1440.webp 1440w" sizes="(min-width: 768px) 62vw, 100vw" alt="" width="1440" height="960" fetchpriority="high" decoding="async">
+    </picture>
+    <script>
+      (function () { var t = document.documentElement.dataset.turno, i = document.querySelector('[data-hero-img]'), s = i.previousElementSibling;
+        s.srcset = s.getAttribute('data-srcset-' + t); i.srcset = i.getAttribute('data-srcset-' + t); i.src = i.getAttribute('data-src-' + t);
+        i.alt = t === 'noche' ? 'Pizza de Fornole cortada sobre la mesa celeste' : 'Café y pizza sobre la mesa celeste de Fornole'; })();
+    </script>
+    <p class="hero__estado" data-estado-chip><span class="punto-vivo"></span><span data-estado-txt>Holmberg 2323</span></p>
+  </div>
+</section>
+
+<!-- ===== 2 · MARQUESINA ===== -->
+<div class="cinta" aria-hidden="true">
+  <div class="cinta__pista">
+    <span>Masa madre</span><i>✺</i><span>Harinas agroecológicas</span><i>✺</i><span>Horno napolitano</span><i>✺</i><span>Vinos naturales</span><i>✺</i><span>Ristorante // Pizza &amp; Pan</span><i>✺</i>
+    <span>Masa madre</span><i>✺</i><span>Harinas agroecológicas</span><i>✺</i><span>Horno napolitano</span><i>✺</i><span>Vinos naturales</span><i>✺</i><span>Ristorante // Pizza &amp; Pan</span><i>✺</i>
+  </div>
+</div>
+
+<!-- ===== 3 · LOS ÍDOLOS (la disquera) ===== -->
+<section class="idolos" id="idolos" aria-labelledby="idolos-t">
+  <div class="wrap idolos__grid">
+    <div class="idolos__izq">
+      <p class="eyebrow anim">Pizzas napolitanas · Lado A</p>
+      <h2 class="titulo" id="idolos-t"><span class="ren"><span>Los ídolos</span></span></h2>
+      <p class="idolos__p anim">Cada pizza es un disco. Elegilo de la batea, ponelo en la bandeja y leé la lista de temas: los ingredientes.</p>
+      <div class="batea anim" data-batea role="listbox" aria-label="Elegí una pizza"></div>
+      <p class="idolos__ayuda anim"><span class="solo-mouse">Pasá el mouse para levantar un disco, hacé clic o arrastralo a la bandeja.</span><span class="solo-dedo">Deslizá las tapas y tocá una para ponerla a girar.</span></p>
+    </div>
+    <div class="idolos__der anim">
+      <div class="tocadiscos" data-tocadiscos>
+        <div class="tocadiscos__plato"><div class="tocadiscos__disco" data-disco><img data-disco-img src="img/f/pz-spinetta.webp" alt="" width="720" height="720" loading="lazy" decoding="async"><span class="tocadiscos__label"></span></div></div>
+        <div class="tocadiscos__brazo" aria-hidden="true"></div>
+        <span class="tocadiscos__rpm">● 33 RPM</span>
+      </div>
+      <div class="sonando" data-sonando aria-live="polite">
+        <div class="sonando__cab"><p class="sonando__n" data-son-n>Luis Alberto Spinetta</p><p class="sonando__num" data-son-num>N° 04</p></div>
+        <ol class="sonando__temas" data-son-temas></ol>
+        <div class="sonando__pie"><span class="sonando__precio" data-son-precio></span><div data-son-qty></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 4 · CARTA (kit, editable desde /admin) ===== -->
+<section class="carta" id="carta" aria-labelledby="carta-t">
+  <div class="wrap">
+    <div class="carta__cab">
+      <h2 class="titulo titulo--carta" id="carta-t"><span class="ren"><span data-carta-titulo>Carta de día</span></span></h2>
+      <div class="paginas anim" role="tablist" aria-label="Cartas" data-paginas>
+        <button type="button" role="tab" data-pagina="dia">Carta de día</button>
+        <button type="button" role="tab" data-pagina="noche">Carta de noche</button>
+        <button type="button" role="tab" data-pagina="barra">Barra</button>
+      </div>
+    </div>
+    <div class="carta__grid">
+      <div class="carta__lista" data-kit="carta" id="carta-principal" data-kit-categorias="cafes,almuerzo,pizzas-dia,pasteleria,bebidas-dia,entradas,pizzas,postres,aperitivos,cocteleria,cervezas,sin-alcohol"></div>
+      <aside class="carta__aside" aria-hidden="true">
+        <figure class="carta__foto" data-carta-foto>
+          <img src="img/f/pz-charly.webp" alt="" width="720" height="720" loading="lazy" decoding="async">
+          <figcaption data-carta-foto-cap>Pasá el mouse por un plato con punto</figcaption>
+        </figure>
+      </aside>
+    </div>
+    <p class="carta__qr anim">La carta se actualiza sola desde el panel y tiene <a href="carta/" target="_blank" rel="noopener">su propia página para el QR de las mesas →</a></p>
+  </div>
+</section>
+
+<!-- ===== 5 · PANADERÍA (la masa que leuda) ===== -->
+<section class="panaderia" id="panaderia" aria-labelledby="pan-t">
+  <div class="wrap panaderia__grid">
+    <div class="masa" data-masa>
+      <p class="eyebrow anim">Masa madre · harina agroecológica</p>
+      <h2 class="titulo" id="pan-t"><span class="ren"><span>Panadería</span></span></h2>
+      <figure class="masa__foto anim">
+        <div class="masa__crece" data-masa-crece><img src="img/f/masa.webp" alt="Masa de pan fermentando" width="900" height="1125" loading="lazy" decoding="async"></div>
+        <figcaption class="masa__hora"><b data-masa-h>Hora 0</b> de 12 · fermentando</figcaption>
+        <div class="masa__barra" aria-hidden="true"><span data-masa-barra></span></div>
+      </figure>
+      <blockquote class="masa__cita anim">“Esta parte del camino no se puede apurar: se guía, se contempla y se acompaña.” <cite>Mauro Busquet</cite></blockquote>
+    </div>
+    <div class="panes">
+      <p class="panes__p anim">Hacemos pan todos los días con masa madre y harina agroecológica de Don Paisa. Encargalo y pasá a buscarlo: lo tenés asegurado.</p>
+      <div class="panes__fila" data-panes></div>
+      <div class="fornottone anim" data-fornottone hidden></div>
+      <p class="panes__retiro anim">Retiro en Holmberg 2323 · de 9:00 a 16:00 hs · el precio lo confirma el local por WhatsApp.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 6 · LA CAVA (biblioteca de vinos naturales) ===== -->
+<section class="cava" id="cava" aria-labelledby="cava-t">
+  <div class="wrap">
+    <div class="cava__cab">
+      <div>
+        <p class="eyebrow anim">Baja intervención · agroecológicos, orgánicos y biodinámicos</p>
+        <h2 class="titulo" id="cava-t"><span class="ren"><span>La cava</span></span></h2>
+      </div>
+      <div class="cava__filtros anim" data-cava-filtros role="tablist" aria-label="Estilos de vino"></div>
+    </div>
+    <div class="cava__grid">
+      <div class="estante anim" data-estante></div>
+      <article class="ficha anim" data-ficha aria-live="polite"></article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 7 · RESERVAS ===== -->
+<section class="reservas" id="reservas" aria-labelledby="res-t">
+  <div class="wrap reservas__grid">
+    <div class="reservas__izq">
+      <p class="eyebrow anim">Miércoles a domingo · desde las 19:30 hs</p>
+      <h2 class="titulo" id="res-t"><span class="ren"><span>Reservá tu</span></span><span class="ren"><span>mesa celeste</span></span></h2>
+      <p class="reservas__p anim">Elegí día, horario y cuántos son. La reserva le llega al local al instante y te confirman por WhatsApp. Lunes y martes, solo para llevar.</p>
+      <figure class="reservas__foto anim"><img src="img/f/reserva-mesa.webp" alt="Dos pizzas y vino en una mesa celeste de Fornole" width="1000" height="1250" loading="lazy" decoding="async"></figure>
+    </div>
+    <div class="reservas__form anim" data-kit="reservas"></div>
+  </div>
+</section>
+
+<!-- ===== 8 · HISTORIA ===== -->
+<section class="historia" id="historia" aria-labelledby="hist-t">
+  <div class="wrap">
+    <div class="historia__cab">
+      <div>
+        <p class="eyebrow anim">Restaurante argentino con el corazón de un pequeño pueblo de Italia</p>
+        <h2 class="titulo" id="hist-t"><span class="ren"><span>Del hornito de vereda</span></span><span class="ren"><span>al ex taller</span></span></h2>
+      </div>
+      <div class="flechas anim"><button type="button" data-hist="-1" aria-label="Anterior">←</button><button type="button" data-hist="1" aria-label="Siguiente">→</button></div>
+    </div>
+  </div>
+  <ol class="linea" data-linea>
+    <li class="hito"><figure class="polaroid"><img src="img/f/hist-2018.webp" alt="Panes de masa madre sobre un mantel cuadrillé" width="800" height="1000" loading="lazy" decoding="async"></figure><p class="hito__a">2018</p><h3 class="hito__t">Una micropanadería</h3><p class="hito__p">Fornole nace como proyecto de pan de masa madre en Villa Ortúzar. Los panes se reservaban por mensaje directo.</p></li>
+    <li class="hito"><figure class="polaroid"><img src="img/f/hist-2019.webp" alt="Hogaza de masa madre recién horneada" width="800" height="1000" loading="lazy" decoding="async"></figure><p class="hito__a">2019</p><h3 class="hito__t">Talleres de fermentación</h3><p class="hito__p">Mauro da talleres de masa madre y, junto a Qué Kéfir, la Experiencia Fermentación.</p></li>
+    <li class="hito"><figure class="polaroid"><img src="img/f/hist-2020.webp" alt="Afiche pintado de FF Pizzas" width="800" height="1000" loading="lazy" decoding="async"></figure><p class="hito__a">2020</p><h3 class="hito__t">FF Pizzas</h3><p class="hito__p">En plena pandemia, el proyecto de pizzas que “nos salvó de la locura”: pedidos, pop-ups y un hornito a leña en la vereda.</p></li>
+    <li class="hito"><figure class="polaroid"><img src="img/f/hist-nonna.webp" alt="La pastalinda de la nonna" width="800" height="1000" loading="lazy" decoding="async"></figure><p class="hito__a">Las raíces</p><h3 class="hito__t">La pastalinda de la nonna</h3><p class="hito__p">La máquina con la que la nonna hacía las pastas. De ahí viene el corazón de pueblo italiano.</p></li>
+    <li class="hito"><figure class="polaroid polaroid--ancha"><img src="img/f/hist-2023.webp" alt="La fachada roja de Fornole en Holmberg 2323" width="1100" height="733" loading="lazy" decoding="async"></figure><p class="hito__a">28/10/2023</p><h3 class="hito__t">Holmberg 2323</h3><p class="hito__p">Después de cinco años como proyecto, abre el local: un ex taller mecánico con mucho espacio y luz.</p></li>
+    <li class="hito"><figure class="polaroid polaroid--ancha"><img src="img/f/hist-hoy.webp" alt="Parte del equipo de Fornole en la puerta del local" width="1100" height="825" loading="lazy" decoding="async"></figure><p class="hito__a">Hoy</p><h3 class="hito__t">Pizza &amp; pan</h3><p class="hito__p">Panadería de día, pizzería napolitana de noche, vinos naturales y una familia grande que banca todas.</p></li>
+  </ol>
+</section>
+
+<!-- ===== 9 · EL LOCAL ===== -->
+<section class="local" id="local" aria-labelledby="local-t">
+  <div class="wrap">
+    <p class="eyebrow anim">Mesas celestes, marcos rojos y el horno a la vista</p>
+    <h2 class="titulo" id="local-t"><span class="ren"><span>El local</span></span></h2>
+  </div>
+  <div class="mosaico" data-mosaico>
+    <figure class="m m1"><img src="img/f/local-salon.webp" alt="El salón con mesas celestes" width="1100" height="1100" loading="lazy" decoding="async"></figure>
+    <figure class="m m2"><img src="img/f/local-horno.webp" alt="El horno napolitano encendido" width="1100" height="825" loading="lazy" decoding="async"></figure>
+    <figure class="m m3"><img src="img/f/local-puerta.webp" alt="Una pizza sale por la puerta roja de Fornole" width="720" height="1280" loading="lazy" decoding="async"></figure>
+    <figure class="m m4"><img src="img/f/local-vinos.webp" alt="La vinoteca de vinos naturales" width="900" height="1597" loading="lazy" decoding="async"></figure>
+    <figure class="m m5"><img src="img/f/local-pizzas.webp" alt="Una mesa larga llena de pizzas" width="1100" height="1100" loading="lazy" decoding="async"></figure>
+    <figure class="m m6"><img src="img/f/local-mesa.webp" alt="Rincón con mesa roja y sillas amarillas" width="900" height="1125" loading="lazy" decoding="async"></figure>
+  </div>
+</section>
+
+<!-- ===== 10 · VISITANOS ===== -->
+<section class="visitanos" id="visitanos" aria-labelledby="vis-t">
+  <div class="wrap visitanos__grid">
+    <figure class="visitanos__foto anim"><img class="visitanos__real" src="img/f/fachada.webp" alt="La fachada de Fornole en Holmberg 2323, con sus marcos rojos" width="1280" height="853" loading="lazy" decoding="async"><span class="visitanos__dibujo"><img src="img/f/fachada-dibujo.webp" alt="" width="1160" height="616" loading="lazy" decoding="async"></span></figure>
+    <div class="visitanos__info">
+      <p class="eyebrow anim">Villa Urquiza · CABA</p>
+      <h2 class="titulo" id="vis-t"><span class="ren"><span>Holmberg 2323</span></span></h2>
+      <p class="estado anim" data-estado><span class="punto-vivo"></span><span data-estado-largo>Consultá el horario</span></p>
+      <ul class="horarios anim" data-horarios></ul>
+      <div class="visitanos__cta anim">
+        <a class="btn btn--rojo" href="https://www.google.com/maps/search/?api=1&amp;query=Fornole+Holmberg+2323+Villa+Urquiza" target="_blank" rel="noopener">Cómo llegar</a>
+        <a class="btn btn--linea-rojo" href="https://wa.me/5491132143632" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="btn btn--linea-rojo" href="https://instagram.com/fornole" target="_blank" rel="noopener">@fornole</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="pie">
+  <div class="wrap pie__grid">
+    <img class="pie__logo" src="img/logo-crema.svg" alt="Fornole" width="820" height="408" loading="lazy">
+    <div class="pie__col"><strong>[ Ristorante // Pizza &amp; Pan ]</strong><p>Holmberg 2323, Villa Urquiza</p><p>Restaurante argentino con el corazón de un pequeño pueblo de Italia.</p></div>
+    <div class="pie__col"><strong>Contacto</strong><p><a href="https://wa.me/5491132143632" target="_blank" rel="noopener">WhatsApp 11 3214-3632</a></p><p><a href="https://instagram.com/fornole" target="_blank" rel="noopener">@fornole</a></p><p><a href="carta/" target="_blank" rel="noopener">Carta para el QR</a></p></div>
+  </div>
+  <a class="pie__panel" href="admin/" target="_blank" rel="noopener"><span class="punto-vivo"></span>¿Sos de Fornole? Probá tu panel →</a>
+  <p class="pie__credito">Sitio desarrollado por <a href="https://alejomfernandez.com.ar" target="_blank" rel="noopener">Alejo Martín Fernández</a></p>
+</footer>
+
+<script type="module" src="js/fornole.js?v=1"></script>
+</body>
+</html>
