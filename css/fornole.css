@@ -215,12 +215,12 @@ html.listo .hero__p, html.listo .hero__cta { opacity: 1; transform: none; }
 .carta { padding: var(--aire) 0; background: var(--papel); }
 .carta__cab { display: flex; flex-direction: column; gap: 6px; margin-bottom: 18px; }
 .titulo--carta { margin-bottom: 14px; }
-#carta[data-pagina="noche"] .titulo--carta, #carta[data-pagina="barra"] .titulo--carta { color: var(--bordo); }
+#carta[data-actual="noche"] .titulo--carta, #carta[data-actual="barra"] .titulo--carta { color: var(--bordo); }
 .paginas { display: flex; gap: 6px; background: #fff; border: 1px solid var(--linea); border-radius: 999px; padding: 5px; width: max-content; max-width: 100%; overflow-x: auto; scrollbar-width: none; }
 .paginas::-webkit-scrollbar { display: none; }
 .paginas button { flex: none; min-height: 44px; padding: 0 16px; border: 0; border-radius: 999px; background: none; font: 600 15px/1 var(--f-txt); color: var(--tinta); cursor: pointer; transition: background .2s, color .2s; }
 .paginas button.is-on { background: var(--rojo-b); color: #fff; }
-#carta[data-pagina="noche"] .paginas button.is-on, #carta[data-pagina="barra"] .paginas button.is-on { background: var(--bordo); }
+#carta[data-actual="noche"] .paginas button.is-on, #carta[data-actual="barra"] .paginas button.is-on { background: var(--bordo); }
 @media (hover: hover) { .paginas button:hover:not(.is-on) { background: var(--papel2); } }
 .carta__aside { display: none; }
 .carta .kit-carta { --kit-cols: 1; }
@@ -232,7 +232,7 @@ html.listo .hero__p, html.listo .hero__cta { opacity: 1; transform: none; }
 .sec-cab { grid-column: 1 / -1; display: flex; flex-direction: column; gap: 4px; padding: 18px 0 10px; }
 .sec-cab__fila { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
 .sec-cab__t { font: 400 clamp(32px, 4vw, 46px)/1 var(--f-tit); color: var(--rojo); }
-#carta[data-pagina="noche"] .sec-cab__t, #carta[data-pagina="barra"] .sec-cab__t { color: var(--bordo); }
+#carta[data-actual="noche"] .sec-cab__t, #carta[data-actual="barra"] .sec-cab__t { color: var(--bordo); }
 .sec-cab__n { font-size: 14px; color: var(--suave); white-space: nowrap; }
 .sec-cab__nota { font-size: 15px; color: var(--suave); max-width: 60ch; }
 .plato { gap: 14px !important; padding: 16px 0 !important; border-bottom: 1px solid var(--linea) !important; border-top: 0 !important; background: none !important; border-radius: 0 !important; box-shadow: none !important; }
@@ -279,7 +279,7 @@ html.listo .hero__p, html.listo .hero__cta { opacity: 1; transform: none; }
   .carta .kit-tab { text-align: left; min-height: 48px; padding: 0 14px; border-radius: 8px; font-size: 21px; color: var(--tinta); border-bottom: 1px solid var(--linea); border-radius: 0; }
   .carta .kit-tab::after { display: none; }
   .carta .kit-tab.is-on { background: var(--rojo-b); color: #fff; border-radius: 8px; border-color: transparent; }
-  #carta[data-pagina="noche"] .kit-tab.is-on, #carta[data-pagina="barra"] .kit-tab.is-on { background: var(--bordo); }
+  #carta[data-actual="noche"] .kit-tab.is-on, #carta[data-actual="barra"] .kit-tab.is-on { background: var(--bordo); }
   @media (hover: hover) { .carta .kit-tab:hover:not(.is-on) { background: var(--papel2); } }
   .carta .kit-carta__panel { grid-column: 2; grid-template-columns: minmax(0, 1fr); gap: 0 36px; }
   .carta .kit-carta__panel.dos-col { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -510,3 +510,19 @@ html.en-hero .kit-demo-pill { opacity: 0 !important; pointer-events: none; trans
 .kit-btn--big { font-family: var(--f-txt) !important; font-weight: 600; text-transform: none !important; letter-spacing: 0 !important; }
 .visitanos__dibujo img { width: 100%; height: auto; }
 .cinta__pista, .tocadiscos__disco img { will-change: transform; }
+
+/* filas deslizables: se agarran desde cualquier lado, sin seleccionar texto ni arrastrar fotos */
+.deslizable { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
+.deslizable img { -webkit-user-drag: none; user-drag: none; pointer-events: none; }
+@media (hover: hover) and (pointer: fine) { .deslizable { cursor: grab; } .deslizable.arrastrando, .deslizable.arrastrando * { cursor: grabbing !important; } }
+.deslizable.arrastrando { scroll-snap-type: none !important; }
+.deslizable.arrastrando button, .deslizable.arrastrando a { pointer-events: none; }
+/* el botón Agregar y el selector − n + miden lo mismo: nada se mueve al sumar */
+.carta .kit-qty, .panes .kit-qty, .fornottone .kit-qty { width: 132px; display: flex; justify-content: flex-end; flex: none; }
+.carta .kit-add, .panes .kit-add, .fornottone .kit-add { width: 132px; justify-content: center; }
+.carta .kit-step, .panes .kit-step, .fornottone .kit-step { width: 132px; justify-content: space-between; }
+.sonando .kit-qty { min-width: 150px; display: flex; justify-content: flex-end; }
+.sonando .kit-add, .sonando .kit-step { width: 150px; justify-content: space-between; }
+.sonando .kit-add { justify-content: center; }
+.carta .kit-item__side { min-width: 132px; }
+.carta .kit-add, .panes .kit-add, .fornottone .kit-add { height: 47px; }

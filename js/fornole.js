@@ -105,8 +105,14 @@ function contadorCaja(kit) {
 // arrastre con el mouse en filas deslizables (con el dedo ya es nativo), con inercia
 function arrastrable(el) {
   let x0 = 0, s0 = 0, activo = false, movio = false, vel = 0, ultX = 0, ultT = 0, raf = 0;
+  el.classList.add('deslizable');
+  el.addEventListener('dragstart', (e) => e.preventDefault());
+  $$('img', el).forEach(i => { i.draggable = false; });
+  new MutationObserver(() => $$('img', el).forEach(i => { i.draggable = false; })).observe(el, { childList: true, subtree: true });
   el.addEventListener('pointerdown', (e) => {
     if (e.pointerType !== 'mouse' || e.button !== 0) return;
+    if (e.target.closest('input, textarea, select')) return;
+    e.preventDefault();                       // sin selección de texto ni arrastre nativo de la imagen
     activo = true; movio = false; x0 = ultX = e.clientX; s0 = el.scrollLeft; ultT = performance.now(); vel = 0; cancelAnimationFrame(raf);
   });
   addEventListener('pointermove', (e) => {
@@ -267,8 +273,8 @@ function mostrarPagina(id, abrirPrimera = true) {
   const el = $('#carta-principal'); if (!el) return;
   const pag = PAGINAS[id];
   $('[data-carta-titulo]').textContent = pag.t;
-  $('#carta').dataset.pagina = id;
-  $$('[data-pagina]').forEach(b => { const on = b.dataset.pagina === id; b.classList.toggle('is-on', on); b.setAttribute('aria-selected', on); });
+  $('#carta').dataset.actual = id;
+  $$('.paginas [data-pagina]').forEach(b => { const on = b.dataset.pagina === id; b.classList.toggle('is-on', on); b.setAttribute('aria-selected', on); });
   const tabs = $$('.kit-tab', el);
   tabs.forEach(t => { t.hidden = !pag.cats.includes(t.dataset.cat); });
   const visibles = tabs.filter(t => !t.hidden);
@@ -287,10 +293,10 @@ function mostrarPagina(id, abrirPrimera = true) {
 function carta() {
   const el = $('#carta-principal');
   const foto = $('[data-carta-foto] img'), cap = $('[data-carta-foto-cap]');
-  $$('[data-pagina]').forEach(b => b.addEventListener('click', () => mostrarPagina(b.dataset.pagina)));
+  $$('.paginas [data-pagina]').forEach(b => b.addEventListener('click', () => mostrarPagina(b.dataset.pagina)));
   $('[data-paginas]').addEventListener('keydown', (e) => {
     if (!['ArrowRight', 'ArrowLeft'].includes(e.key)) return;
-    const bs = $$('[data-pagina]'); const i = bs.indexOf(document.activeElement); if (i < 0) return;
+    const bs = $$('.paginas [data-pagina]'); const i = bs.indexOf(document.activeElement); if (i < 0) return;
     const n = bs[(i + (e.key === 'ArrowRight' ? 1 : -1) + bs.length) % bs.length]; n.focus(); n.click();
   });
   $$('[data-ir-pagina]').forEach(a => a.addEventListener('click', () => mostrarPagina(a.dataset.irPagina)));
